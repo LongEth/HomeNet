@@ -76,7 +76,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         git clone https://github.com/kenzok8/small package/small
-        git clone https://github.com/kenzok8/litte package/litte     
+        #git clone https://github.com/kenzok8/litte package/litte     
 
     - name: 自定义配置文件Lean
       env:
@@ -86,6 +86,7 @@ jobs:
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && rm -rf package/litte/luci-app-ssr-plus
         sudo -E chmod 755 package/litte/luci-app-adguardhome/root/etc/init.d/AdGuardHome
+        rm -rf package/small/naiveproxy
         rm -rf package/litte/microsocks && rm -rf package/litte/redsocks2 && rm -rf package/litte/tcpping
         cp -f package/litte/default-settings package/lean/default-settings/files/zzz-default-settings
         cp -f package/litte/banner package/base-files/files/etc/banner
