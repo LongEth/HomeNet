@@ -106,7 +106,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
-        make -j$(nproc) V=s
+        make -j$(nproc)
 
     - name : 上传固件与目录
       uses: actions/upload-artifact@main
